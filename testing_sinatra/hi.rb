@@ -1,3 +1,4 @@
+# A simple Sinatra Hello World
 require 'sinatra'
 get '/' do
   "This is the route"
