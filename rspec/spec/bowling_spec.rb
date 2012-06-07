@@ -1,4 +1,4 @@
-require_relative 'bowling'
+require 'bowling'
 
 describe Bowling, "#score" do
 	 it "return 0 for all gutter games" do
