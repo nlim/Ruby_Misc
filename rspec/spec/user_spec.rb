@@ -1,3 +1,5 @@
+require 'user'
+
 module UserExampleHelpers
 
   def create_valid_user
@@ -11,8 +13,14 @@ end
 
 
 describe User do
-  it "should create a valid user"
+  include UserExampleHelpers
 
-  it "should raise an exception on invalid user creation"
+  it "should create a valid user" do
+    expect{ create_valid_user }.should_not raise_error(UserInvalidException)
+  end
+
+  it "should raise an exception on invalid user creation" do
+    expect{ create_invalid_user }.should raise_error(UserInvalidException)
+  end
 
 end

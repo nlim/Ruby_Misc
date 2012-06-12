@@ -3,18 +3,18 @@ class User
 
 
   def initialize(args)
+    raise UserInvalidException unless args[:email] and args[:password]
     args.each do |k, v|
       instance_variable_set("@#{k}", v) unless v.nil?
     end
   end
 
+  
   def to_s
     "User => {:email => #{email}, :password => #{password}}"
   end
 
 end
 
+class UserInvalidException < Exception; end
 
-
-u1 = User.new(:email => "cooldude@gmail.com", :password => "ssshhhh")
-puts u1
